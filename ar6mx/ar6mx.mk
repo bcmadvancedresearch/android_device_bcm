@@ -19,7 +19,8 @@ PRODUCT_COPY_FILES += \
 	device/bcm/ar6mx/audio_effects.conf:system/vendor/etc/audio_effects.conf \
 	device/bcm/EETI/eGalaxTouch_VirtualDevice.idc:system/usr/idc/eGalaxTouch_VirtualDevice.idc \
         device/bcm/EETI/eGTouchA.ini:data/eGTouchA.ini \
-        device/bcm/EETI/eGTouchD:system/bin/eGTouchD
+        device/bcm/EETI/eGTouchD:system/bin/eGTouchD \
+	device/bcm/ar6mx/load_wifi_module.sh:system/etc/load_wifi_module.sh
 
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
@@ -53,3 +54,15 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_PACKAGES += AudioRoute
+
+# for Compat driver
+PRODUCT_COPY_FILES += \
+	device/bcm/ar6mx/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+
+# include firmware binaries for Wifi adapters
+$(call inherit-product-if-exists, vendor/intel/hardware/wlan/iwl-firmware/iwlwifi.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        wifi.interface=wlan0
+
+PRODUCT_PACKAGES += IWLWIFI

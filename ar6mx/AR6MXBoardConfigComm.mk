@@ -8,35 +8,25 @@ include device/fsl/imx6/BoardConfigCommon.mk
 TARGET_BOOTLOADER_BOARD_NAME := AR6MX
 PRODUCT_MODEL := AR6MX 
 
-# Wifi
-#BOARD_WLAN_VENDOR 			 := ATHEROS
-#BOARD_WLAN_VENDOR 			 := INTEL
-#ifeq ($(BOARD_WLAN_VENDOR),ATHEROS)
-# UNITE is a virtual device support both atheros and realtek wifi(ar6103 and rtl8723as)
-BOARD_WLAN_DEVICE            := UNITE
-WPA_SUPPLICANT_VERSION       := VER_0_8_UNITE
-TARGET_KERNEL_MODULES        := \
-                                kernel_imx/drivers/net/wireless/rtl8723as/8723as.ko:system/lib/modules/8723as.ko \
-                                kernel_imx/net/wireless/cfg80211.ko:system/lib/modules/cfg80211_realtek.ko
-BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
-BOARD_HOSTAPD_DRIVER         := NL80211
+# For wifi
+BOARD_CUSTOM_WIFI_HAL_SRC := hardware/intel/wifi/wifi.c
+ADDITIONAL_DEFAULT_PROPERTIES += wifi.interface=wlan0
 
-BOARD_HOSTAPD_PRIVATE_LIB_QCOM              := lib_driver_cmd_qcwcn
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB_QCOM       := lib_driver_cmd_qcwcn
-BOARD_HOSTAPD_PRIVATE_LIB_RTL               := lib_driver_cmd_rtl
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB_RTL        := lib_driver_cmd_rtl
-#endif
-#for intel vendor
-ifeq ($(BOARD_WLAN_VENDOR),INTEL)
-BOARD_HOSTAPD_PRIVATE_LIB                := private_lib_driver_cmd
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB         := private_lib_driver_cmd
-WPA_SUPPLICANT_VERSION                   := VER_0_8_X
-HOSTAPD_VERSION                          := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB         := private_lib_driver_cmd_intel
-WIFI_DRIVER_MODULE_PATH                  := "/system/lib/modules/iwlagn.ko"
-WIFI_DRIVER_MODULE_NAME                  := "iwlagn"
-WIFI_DRIVER_MODULE_PATH                  ?= auto
-endif
+# Must be set to enable WPA supplicant build. WEXT is the driver for generic
+# linux wireless extensions. NL80211 supercedes it.
+# This variable is used by external/wpa_supplicant/Android.mk
+BOARD_WPA_SUPPLICANT_DRIVER=NL80211
+
+# Set to use WCS supplicant version
+WPA_SUPPLICANT_VERSION := VER_2_1_DEVEL_WCS
+BOARD_WLAN_DEVICE := intc
+
+#Do not reload firmware when enabling SoftAP
+NO_FW_RELOAD_FOR_SOFTAP := true
+
+BOARD_USING_INTEL_IWL := true
+INTEL_IWL_BOARD_CONFIG := iwlwifi-public-android
+INTEL_IWL_USE_SYSTEM_COMPAT_MOD_BUILD := y
 
 BOARD_MODEM_VENDOR := AMAZON
 
