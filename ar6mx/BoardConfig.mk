@@ -39,3 +39,13 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED	:= true
 TARGET_NO_RECOVERY			:= false
 TARGET_PROVIDES_INIT_RC			:= true
 TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.bcm
+
+BOARD_SEPOLICY_DIRS := \
+       device/fsl/sabresd_6dq/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+       app.te \
+       file_contexts \
+       fs_use \
+       untrusted_app.te \
+       genfs_contexts
