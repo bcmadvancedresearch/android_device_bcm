@@ -21,6 +21,8 @@ BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init video=mxcfb0 video=mxc
 endif
 
 #TARGET_KERNEL_DEFCONF := ar6mx_android_defconfig
+USE_ION_ALLOCATOR := false
+USE_GPU_ALLOCATOR := true
 TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_config 6dl:ar6mxdlandroid_config 6solo:ar6mxsandroid_config
 TARGET_BOARD_DTS_CONFIG := 6q:imx6q-ar6mx.dtb 6dl:imx6dl-ar6mx.dtb
 
