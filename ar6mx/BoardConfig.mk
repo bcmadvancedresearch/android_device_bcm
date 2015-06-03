@@ -21,6 +21,7 @@ BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init video=mxcfb0 video=mxc
 endif
 
 #TARGET_KERNEL_DEFCONF := ar6mx_android_defconfig
+TARGET_KERNEL_DEFCONF := imx_v7_android_defconfig
 USE_ION_ALLOCATOR := false
 USE_GPU_ALLOCATOR := true
 TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_config 6dl:ar6mxdlandroid_config 6solo:ar6mxsandroid_config
@@ -41,11 +42,26 @@ TARGET_PROVIDES_INIT_RC			:= true
 TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.bcm
 
 BOARD_SEPOLICY_DIRS := \
-       device/fsl/sabresd_6dq/sepolicy
+       device/bcm/ar6mx/sepolicy
 
 BOARD_SEPOLICY_UNION := \
-       app.te \
-       file_contexts \
-       fs_use \
+       domain.te \
+       system_app.te \
+       system_server.te \
        untrusted_app.te \
-       genfs_contexts
+       sensors.te \
+       init_shell.te \
+       bluetooth.te \
+       kernel.te \
+       mediaserver.te \
+       file_contexts \
+       genfs_contexts \
+       fs_use  \
+       rild.te \
+       init.te \
+       netd.te \
+       bootanim.te \
+       dnsmasq.te \
+       recovery.te \
+       device.te \
+       zygote.te
