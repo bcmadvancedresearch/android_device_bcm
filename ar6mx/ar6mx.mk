@@ -17,7 +17,6 @@ PRODUCT_NAME := ar6mx
 PRODUCT_DEVICE := ar6mx
 
 PRODUCT_COPY_FILES += \
-	device/bcm/ar6mx/required_hardware.xml:system/etc/permissions/required_hardware.xml \
         device/bcm/ar6mx/init.rc:root/init.freescale.rc \
         device/bcm/ar6mx/gpsreset.sh:system/etc/gpsreset.sh \
         device/bcm/ar6mx/audio_policy.conf:system/etc/audio_policy.conf \
@@ -65,22 +64,22 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
 	device/bcm/ar6mx/required_hardware.xml:system/etc/permissions/required_hardware.xml
 
-#PRODUCT_PACKAGES += AudioRoute
+PRODUCT_PACKAGES += AudioRoute
 
 # for Compat driver
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
 	device/bcm/ar6mx/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
 
 # include firmware binaries for Wifi adapters
-#$(call inherit-product-if-exists, vendor/intel/hardware/wlan/iwl-firmware/iwlwifi.mk)
+$(call inherit-product-if-exists, vendor/intel/hardware/wlan/iwl-firmware/iwlwifi.mk)
 
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
         wifi.interface=wlan0
 
-#SUPERUSER_PACKAGE := com.bcm.superuser
+SUPERUSER_PACKAGE := com.bcm.superuser
 
-#SUPERUSER_EMBEDDED := true
+SUPERUSER_EMBEDDED := true
 
-#PRODUCT_PACKAGES += IWLWIFI \
-#										su \
+PRODUCT_PACKAGES += IWLWIFI \
+										su \
 										Superuser
