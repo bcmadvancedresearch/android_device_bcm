@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
         device/bcm/EETI/eGTouchA.ini:data/eGTouchA.ini \
         device/bcm/EETI/eGTouchD:system/bin/eGTouchD \
         device/bcm/init.superuser.rc:root/init.superuser.rc \
-        device/bcm/ar6mx/load_wifi_module.sh:system/etc/load_wifi_module.sh
+        device/bcm/ar6mx/load_wifi_module.sh:system/etc/load_wifi_module.sh \
 
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
@@ -76,10 +76,11 @@ $(call inherit-product-if-exists, vendor/intel/hardware/wlan/iwl-firmware/iwlwif
 PRODUCT_PROPERTY_OVERRIDES += \
         wifi.interface=wlan0
 
-SUPERUSER_PACKAGE := com.bcm.superuser
+#SUPERUSER_PACKAGE := com.bcm.superuser
+SUPERUSER_PACKAGE_PREFIX := .cyanogenmod.superuser
 
 SUPERUSER_EMBEDDED := true
 
 PRODUCT_PACKAGES += IWLWIFI \
-										su \
-										Superuser
+	su \
+	Superuser
