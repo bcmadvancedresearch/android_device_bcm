@@ -21,4 +21,7 @@
     <bool name="def_user_setup_complete">true</bool>
     <!-- Disable GPS Provider-->
     <string name="def_location_providers_allowed" translatable="false"></string>
+    <!-- Default for Settings.Global.STAY_ON_WHILE_PLUGGED_IN -->
+    <bool name="def_stay_on_while_plugged_in">true</bool>
+
 </resources>
