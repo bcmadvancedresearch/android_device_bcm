@@ -114,7 +114,8 @@ TARGET_BOARD_DTS_CONFIG := 6q:imx6q-ar6mx.dtb 6dl:imx6dl-ar6mx.dtb
 TARGET_KERNEL_DEFCONF := imx_v7_android_defconfig
 
 BOARD_SEPOLICY_DIRS := \
-       device/bcm/ar6mx/sepolicy
+       device/bcm/ar6mx/sepolicy \
+       device/fsl/imx6/sepolicy
 
 BOARD_SEPOLICY_UNION := \
        domain.te \
@@ -124,16 +125,19 @@ BOARD_SEPOLICY_UNION := \
        sensors.te \
        init_shell.te \
        bluetooth.te \
+       hci_attach.te \
        kernel.te \
        mediaserver.te \
        file_contexts \
        genfs_contexts \
        fs_use  \
        rild.te \
+       hostapd.te \
        init.te \
        netd.te \
        bootanim.te \
        dnsmasq.te \
        recovery.te \
        device.te \
-       zygote.te
+       wpa.te \
+       zygote.te \

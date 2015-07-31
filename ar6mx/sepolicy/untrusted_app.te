@@ -1,10 +1,2 @@
-allow untrusted_app graphics_device:dir rw_dir_perms;
-allow untrusted_app graphics_device:file rw_file_perms;
-allow untrusted_app unlabeled:dir rw_dir_perms;
-allow untrusted_app unlabeled:lnk_file {read};
-allow untrusted_app sdcard_external:dir rw_dir_perms;
-allow untrusted_app sdcard_external:file rw_file_perms;
-allow untrusted_app vfat:dir { rw_file_perms create setattr rename };
-allow untrusted_app vfat:file { rw_file_perms create setattr rename };
 allow untrusted_app su_exec:file { read execute execute_no_trans open };
 allow untrusted_app device:sock_file write;
