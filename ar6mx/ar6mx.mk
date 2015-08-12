@@ -68,7 +68,8 @@ PRODUCT_COPY_FILES += \
 	device/bcm/ar6mx/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
 
 # include firmware binaries for Wifi adapters
-$(call inherit-product-if-exists, vendor/linux-firmware/iwlwifi.mk)
+#$(call inherit-product-if-exists, vendor/linux-firmware/iwlwifi.mk)
+$(call inherit-product,$(LOCAL_PATH)/firmware.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
         wifi.interface=wlan0

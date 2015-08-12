@@ -17,3 +17,10 @@
     insmod /system/lib/modules/iwlmvm.ko
     /system/bin/busybox sleep 2
     insmod /system/lib/modules/iwldvm.ko
+    # btusb
+    insmod /system/lib/modules/bluetooth.ko
+    insmod /system/lib/modules/rfcomm.ko
+    insmod /system/lib/modules/bnep.ko
+    insmod /system/lib/modules/btusb.ko
+    /system/bin/busybox sleep 1
+    hciconfig hci0 up
