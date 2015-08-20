@@ -6,41 +6,26 @@ include device/fsl/imx6/soc/imx6dq.mk
 include device/bcm/ar6mx/build_id.mk
 include device/fsl/imx6/BoardConfigCommon.mk
 include device/fsl-proprietary/gpu-viv/fsl-gpu.mk
-# AR6MX_ default target for EXT4
+# AR6MX default target for EXT4
 BUILD_TARGET_FS = ext4
+# AR6MX default target device(change to emmc for emmc boot)
 BUILD_TARGET_DEVICE = sd
 
 include device/fsl/imx6/imx6_target_fs.mk
 
-#ifeq ($(BUILD_TARGET_DEVICE),sd)
+ifeq ($(BUILD_TARGET_DEVICE),sd)
 ADDITIONAL_BUILD_PROPERTIES += \
                         ro.boot.storage_type=sd
-#ifneq ($(BUILD_TARGET_FS),f2fs)
-TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.bcm
-# build for ext4
+TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.bcm.sd
 PRODUCT_COPY_FILES +=	\
-	device/bcm/ar6mx/fstab.bcm:root/fstab.freescale
-#else
-#TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab_sd-f2fs.freescale
-# build for f2fs
-#PRODUCT_COPY_FILES +=	\
-	device/bcm/ar6mx/fstab_sd-f2fs.freescale:root/fstab.freescale
-#endif # BUILD_TARGET_FS
-#else
-#ADDITIONAL_BUILD_PROPERTIES += \
+	device/bcm/ar6mx/fstab.bcm.sd:root/fstab.freescale
+else
+ADDITIONAL_BUILD_PROPERTIES += \
                         ro.boot.storage_type=emmc
-#ifneq ($(BUILD_TARGET_FS),f2fs)
-#TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.freescale
-# build for ext4
-#PRODUCT_COPY_FILES +=	\
-	device/bcm/ar6mx/fstab.freescale:root/fstab.freescale
-#else
-#TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab-f2fs.freescale
-# build for f2fs
-#PRODUCT_COPY_FILES +=	\
-	device/bcm/ar6mx/fstab-f2fs.freescale:root/fstab.freescale
-#endif # BUILD_TARGET_FS
-#endif # BUILD_TARGET_DEVICE
+TARGET_RECOVERY_FSTAB = device/bcm/ar6mx/fstab.bcm.emmc
+PRODUCT_COPY_FILES +=	\
+	device/bcm/ar6mx/fstab.bcm.emmc:root/fstab.freescale
+endif # BUILD_TARGET_DEVICE
 
 
 TARGET_BOOTLOADER_BOARD_NAME := AR6MX
@@ -50,6 +35,7 @@ BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
 BOARD_HOSTAPD_DRIVER         := NL80211
 
 #for intel vendor
+BOARD_WLAN_DEVICE := intel
 BOARD_HOSTAPD_PRIVATE_LIB                := private_lib_driver_cmd
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB         := private_lib_driver_cmd
 WPA_SUPPLICANT_VERSION                   := VER_0_8_X
