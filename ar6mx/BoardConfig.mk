@@ -97,11 +97,9 @@ IMX6_CONSUMER_IR_HAL := true
 TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_config 6dl:ar6mxdlandroid_config 6solo:ar6mxsandroid_config
 TARGET_BOARD_DTS_CONFIG := 6q:imx6q-ar6mx.dtb 6dl:imx6dl-ar6mx.dtb
 
-TARGET_KERNEL_DEFCONF := imx_v7_android_defconfig
-
 BOARD_SEPOLICY_DIRS := \
-       device/bcm/ar6mx/sepolicy \
-       device/fsl/imx6/sepolicy
+       device/fsl/imx6/sepolicy \
+       device/bcm/ar6mx/sepolicy
 
 BOARD_SEPOLICY_UNION := \
        domain.te \

@@ -18,6 +18,8 @@ PRODUCT_DEVICE := ar6mx
 
 PRODUCT_COPY_FILES += \
         device/bcm/ar6mx/init.rc:root/init.freescale.rc \
+        device/bcm/ar6mx/init.i.MX6DL.rc:root/init.freescale.i.MX6DL.rc \
+        device/bcm/ar6mx/init.i.MX6Q.rc:root/init.freescale.i.MX6Q.rc \
         device/bcm/ar6mx/gpsreset.sh:system/etc/gpsreset.sh \
         device/bcm/ar6mx/audio_policy.conf:system/etc/audio_policy.conf \
         device/bcm/ar6mx/audio_effects.conf:system/vendor/etc/audio_effects.conf \
