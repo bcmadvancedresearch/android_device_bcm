@@ -111,19 +111,16 @@ BOARD_SEPOLICY_UNION := \
        sensors.te \
        init_shell.te \
        bluetooth.te \
-       hci_attach.te \
        kernel.te \
        mediaserver.te \
        file_contexts \
        genfs_contexts \
        fs_use  \
        rild.te \
-       hostapd.te \
        init.te \
        netd.te \
        bootanim.te \
        dnsmasq.te \
        recovery.te \
        device.te \
-       wpa.te \
-       zygote.te \
+       zygote.te
