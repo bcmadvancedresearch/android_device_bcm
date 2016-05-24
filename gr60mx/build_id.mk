@@ -13,20 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# BUILD_ID is usually used to specify the branch name
+# (like "MAIN") or a branch name and a release candidate
+# (like "CRB01").  It must be a single word, and is
+# capitalized by convention.
 
-#
-# This file should set PRODUCT_MAKEFILES to a list of product makefiles
-# to expose to the build system.  LOCAL_DIR will already be set to
-# the directory containing this file.
-#
-# This file may not rely on the value of any variable other than
-# LOCAL_DIR; do not use any conditionals, and do not look up the
-# value of any variable that isn't set in this file or in a file that
-# it includes.
-#
-
-# Copied from build/target/product/AndroidProducts.mk
-
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/ar6mx/ar6mx.mk \
-    $(LOCAL_DIR)/gr60mx/gr60mx.mk \
+export BUILD_ID=2.1.0-ga-rc3
+export BUILD_NUMBER=20151218
