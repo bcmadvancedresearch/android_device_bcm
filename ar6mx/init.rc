@@ -163,6 +163,12 @@ service load_wifi_module /system/bin/sh /system/etc/load_wifi_module.sh
     disabled
     oneshot
 
+service eGTouchD /system/bin/eGTouchD
+    class main
+    user root
+    group root
+    oneshot
+
 on fs
 # mount ext4 partitions
     mount_all /fstab.freescale
