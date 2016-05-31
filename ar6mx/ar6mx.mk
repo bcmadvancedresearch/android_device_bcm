@@ -87,3 +87,13 @@ PRODUCT_PACKAGES += IWLWIFI \
 	su \
 	Superuser \
 	iwlwifi.ko
+
+PRODUCT_PACKAGES += \
+    hostapd \
+    hostapd_cli \
+    wpa_supplicant \
+    wpa_cli
+
+# iwlwifi USC
+PRODUCT_PACKAGES += \
+    wifi_intel_usc
