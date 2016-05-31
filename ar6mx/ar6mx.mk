@@ -97,3 +97,15 @@ PRODUCT_PACKAGES += \
 # iwlwifi USC
 PRODUCT_PACKAGES += \
     wifi_intel_usc
+
+#copy iwlwifi wpa config files
+PRODUCT_COPY_FILES += \
+        device/bcm/common/wlan/wpa_supplicant-common.conf:system/etc/wifi/wpa_supplicant.conf \
+        device/bcm/common/wlan/iwlwifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+
+PRODUCT_COPY_FILES += \
+        device/bcm/common/wlan/iwlwifi/load_iwlwifi.sh:system/bin/load_iwlwifi.sh
+
+# Add Manufacturing tool
+PRODUCT_PACKAGES += \
+    wlan_intel_restore.sh
