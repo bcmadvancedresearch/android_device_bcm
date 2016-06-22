@@ -97,7 +97,8 @@ $(error "TARGET_USERIMAGES_USE_UBIFS and TARGET_USERIMAGES_USE_EXT4 config open 
 endif
 endif
 
-BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
+#BOARD_KERNEL_CMDLINE := console=ttymxc3,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
+BOARD_KERNEL_CMDLINE := console=ttymxc3,115200 init=/init video=mxcfb0:dev=lcd,bpp=24 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=256M androidboot.console=ttymxc3 consoleblank=0 androidboot.hardware=freescale cma=384M androidboot.selinux=disabled androidboot.dm_verity=disabled
 
 ifeq ($(TARGET_USERIMAGES_USE_UBIFS),true)
 #UBI boot command line.
@@ -119,9 +120,8 @@ IMX_CAMERA_HAL_V2 := true
 #define consumer IR HAL support
 IMX6_CONSUMER_IR_HAL := true
 
-TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_config 6dl:ar6mxdlandroid_config 6solo:ar6mxsandroid_config
-TARGET_BOOTLOADER_CONFIG := imx6q:mx6qsabresdandroid_config imx6dl:mx6dlsabresdandroid_config
-TARGET_BOARD_DTS_CONFIG := 6q:imx6q-gr6mx.dtb 6dq:imx6q-gr6mx.dtb 6dl:imx6dl-ar6mx.dtb
+TARGET_BOOTLOADER_CONFIG := imx6q:mx6qgr60mxdandroid_config
+TARGET_BOARD_DTS_CONFIG := 6q:imx6q-gr60mxd.dtb 6dq:imx6q-gr6mx.dtb
 
 BOARD_SEPOLICY_DIRS := \
        device/bcm/gr60mx/sepolicy \
