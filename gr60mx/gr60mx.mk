@@ -22,8 +22,12 @@ PRODUCT_COPY_FILES += \
         device/bcm/gr60mx/audio_policy.conf:system/etc/audio_policy.conf \
         device/bcm/gr60mx/audio_effects.conf:system/vendor/etc/audio_effects.conf \
         device/bcm/init.superuser.rc:root/init.superuser.rc \
-        device/bcm/ar6mx/load_wifi_module.sh:system/etc/load_wifi_module.sh \
-	device/fsl-proprietary/bcm/wl:system/bin/wl \
+        device/bcm/gr60mx/load_wifi_module.sh:system/etc/load_wifi_module.sh \
+	device/bcm/bcm_1dx/wl:system/bin/wl \
+	device/bcm/bcm_1dx/bcmdhd.cal:system/etc/firmware/bcm/bcmdhd.cal \
+	device/bcm/bcm_1dx/fw_bcmdhd.bin:system/etc/firmware/bcm/fw_bcmdhd.bin \
+	device/bcm/bcm_1dx/fw_bcmdhd_apsta.bin:system/etc/firmware/bcm/fw_bcmdhd_apsta.bin \
+	device/bcm/bcm_1dx/Type_ZP.hcd:system/etc/firmware/bcm/Type_ZP.hcd \
 	device/bcm/EETI/eGTouchD:system/bin/eGTouchD \
 	device/bcm/EETI/eGalaxTouch_VirtualDevice.idc:system/usr/idc/eGalaxTouch_VirtualDevice.idc \
 
