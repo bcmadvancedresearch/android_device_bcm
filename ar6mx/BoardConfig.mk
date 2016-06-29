@@ -109,6 +109,8 @@ USE_GPU_ALLOCATOR := true
 # camera hal v2
 IMX_CAMERA_HAL_V2 := true
 
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
+
 #define consumer IR HAL support
 IMX6_CONSUMER_IR_HAL := true
 
