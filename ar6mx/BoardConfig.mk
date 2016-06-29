@@ -99,8 +99,8 @@ ifeq ($(TARGET_USERIMAGES_USE_UBIFS),true)
 BOARD_KERNEL_CMDLINE +=  mtdparts=gpmi-nand:16m(bootloader),16m(bootimg),128m(recovery),-(root) gpmi_debug_init ubi.mtd=3
 endif
 
-# atheros 3k BT
-BOARD_USE_AR3K_BLUETOOTH := true
+# BlueZ stack
+BOARD_USE_BLUEZ := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/bcm/ar6mx/bluetooth
 
 USE_ION_ALLOCATOR := false
