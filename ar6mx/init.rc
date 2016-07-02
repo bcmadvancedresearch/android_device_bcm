@@ -19,6 +19,14 @@ on init
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
+    # setup the global environment
+    export SHM_MOUNTPOINT /mnt/shm
+    export VPU_FW_PATH /system/lib/firmware/vpu
+    export CODEC_SHM_PATH /mnt/shm
+    export CORE_REGISTER_FILE /system/etc/core_register
+    export COMPONENT_REGISTER_FILE /system/etc/component_register
+    export CONTENTPIPE_REGISTER_FILE /system/etc/contentpipe_register
+
 on boot
 
     # Set permission for IIM node
@@ -192,6 +200,11 @@ service eGTouchD /system/bin/eGTouchD
     user root
     group root
     oneshot
+
+# virtual sdcard daemon running as media_rw (1023)
+# default 4 threads have better performance to 2 threads.
+    service sdcard /system/bin/sdcard -l -t4 /data/media /mnt/shell/emulated 1023 1023
+    class late_start
 
 on fs
 # mount ext4 partitions
