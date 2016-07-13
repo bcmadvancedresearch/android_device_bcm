@@ -97,7 +97,9 @@ on boot
     chown root system /sys/devices/system/cpu/cpu3/online
     chmod 0664 /sys/devices/system/cpu/cpu3/online
     chmod 0750 /system/etc/load_wifi_module.sh
+    chmod 0750 /system/etc/eGTouchD.sh
     start load_wifi_module
+    start eGTouchD
 
     # prepare for ril
     setprop gsm.ril.delay 15
@@ -215,10 +217,8 @@ service load_wifi_module /system/bin/sh /system/etc/load_wifi_module.sh
     disabled
     oneshot
 
-service eGTouchD /system/bin/eGTouchD
-    class main
-    user root
-    group root
+service eGTouchD /system/bin/sh /system/etc/eGTouchD.sh
+    disabled
     oneshot
 
 # virtual sdcard daemon running as media_rw (1023)

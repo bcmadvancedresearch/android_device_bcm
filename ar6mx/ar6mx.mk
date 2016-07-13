@@ -25,6 +25,8 @@ PRODUCT_COPY_FILES += \
         device/bcm/ar6mx/audio_effects.conf:system/vendor/etc/audio_effects.conf \
         device/bcm/init.superuser.rc:root/init.superuser.rc \
         device/bcm/ar6mx/load_wifi_module.sh:system/etc/load_wifi_module.sh \
+        device/bcm/EETI/eGTouchD.sh:system/etc/eGTouchD.sh \
+        device/bcm/EETI/eGTouchA.ini:system/etc/eGTouchA.ini \
 	device/bcm/EETI/eGTouchD:system/bin/eGTouchD \
 	device/bcm/EETI/eGalaxTouch_VirtualDevice.idc:system/usr/idc/eGalaxTouch_VirtualDevice.idc \
 
