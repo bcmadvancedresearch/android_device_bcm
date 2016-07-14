@@ -1,6 +1,7 @@
 import init.${ro.hardware}.usb.rc
 import init.bluetooth.rc
 import init.superuser.rc
+import init.${ro.hardware}.${ro.soc}.rc
 
 on init
     start watchdogd
