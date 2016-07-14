@@ -114,7 +114,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
 #define consumer IR HAL support
 IMX6_CONSUMER_IR_HAL := true
 
-TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_config 6dl:ar6mxdlandroid_config 6solo:ar6mxsandroid_config
+TARGET_BOOTLOADER_CONFIG := 6q:ar6mxqandroid_defconfig 6dl:ar6mxsandroid_defconfig
 TARGET_BOARD_DTS_CONFIG := 6q:imx6q-ar6mx.dtb 6dl:imx6dl-ar6mx.dtb
 
 BOARD_SEPOLICY_DIRS := \
