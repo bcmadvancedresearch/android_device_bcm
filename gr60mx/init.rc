@@ -108,6 +108,7 @@ on boot
     start console
 
     # Default backlight device
+    write /sys/class/backlight/pwm-backlight.0/brightness 7
     setprop hw.backlight.dev "pwm-backlight.0"
     # Chmod/chown FSL specific sys entry
     chown system system /sys/class/backlight/pwm-backlight.0/brightness
